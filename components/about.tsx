@@ -60,6 +60,7 @@ export function About() {
               alt="Profile"
               fill
               className="object-cover rounded-2xl"
+              sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
         </motion.div>

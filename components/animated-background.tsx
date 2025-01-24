@@ -23,19 +23,26 @@ export const AnimatedBackground: React.FC = () => {
     const particles: Particle[] = [];
     const particleCount = 50;
 
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+   const resizeCanvas = () => {
+     canvas.width = window.innerWidth;
+     canvas.height = window.innerHeight;
+     console.log("Canvas size:", canvas.width, canvas.height); // Debug log
+   };
+
+
+    const createParticle = (): Particle => {
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * canvas.height;
+      const size = Math.random() * 2 + 1;
+      const speedX = (Math.random() - 0.5) * 0.5;
+      const speedY = (Math.random() - 0.5) * 0.5;
+      const opacity = Math.random() * 0.5 + 0.5;
+
+      console.log(x, y, size, speedX, speedY, opacity); // Debug log
+
+      return { x, y, size, speedX, speedY, opacity };
     };
 
-    const createParticle = (): Particle => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      size: Math.random() * 2 + 1,
-      speedX: (Math.random() - 0.5) * 0.5,
-      speedY: (Math.random() - 0.5) * 0.5,
-      opacity: Math.random() * 0.5 + 0.5,
-    });
 
     const initParticles = () => {
       particles.length = 0;
